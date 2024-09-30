@@ -22,6 +22,13 @@ def generate_audio():
         messagebox.showwarning("Warning", "No file selected.")
 
 
+# Function to handle Ctrl+V (paste)
+def paste_text(event=None):
+    try:
+        text_entry.insert(tk.INSERT, window.clipboard_get())
+    except tk.TclError:
+        pass  # Ignore if there's nothing to paste
+
 # Initialize Tkinter window
 window = tk.Tk()
 window.title("Ukrainian TTS")
@@ -30,6 +37,9 @@ window.title("Ukrainian TTS")
 tk.Label(window, text="Enter Text:").pack()
 text_entry = tk.Text(window, height=10, width=50)
 text_entry.pack()
+
+# Bind Ctrl+V to the paste function
+text_entry.bind('<Control-v>', paste_text)
 
 # Create voice selection dropdown
 tk.Label(window, text="Select Voice:").pack()
