@@ -34,7 +34,7 @@ text_entry.pack()
 # Create voice selection dropdown
 tk.Label(window, text="Select Voice:").pack()
 voice_var = tk.StringVar(value=Voices.Mykyta.value)
-voice_options = [Voices.Mykyta.value, Voices.Tetiana.value, Voices.Dmytro.value]
+voice_options = [Voices.Mykyta.value, Voices.Tetiana.value, Voices.Dmytro.value, Voices.Lada.value, Voices.Oleksa.value]
 voice_menu = tk.OptionMenu(window, voice_var, *voice_options)
 voice_menu.pack()
 
